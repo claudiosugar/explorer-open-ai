@@ -34,7 +34,7 @@ class findexitEnv(gym.Env):
         reward retorna 1 si ha llegado al final, o 0 si aún no ha llegado al final
 
         """
-        print(self.explorer.position())
+        print("explorer position = " + str(self.explorer.position()))
         print("value at coordinates = " + str(self.game_map[self.explorer.x, self.explorer.y]))
         if action == 0:
             if self.explorer.x - 1 >= 0 and self.game_map[self.explorer.x - 1, self.explorer.y] > 0:
@@ -67,9 +67,11 @@ class findexitEnv(gym.Env):
                 print("WALL LEFT")
                 pass
 
-        ob = self.explorer.distance(self.map_exit)
+        # la observación del entorno es la distancia entre el explorador y la salida, (x, y)
+        ob = self.get_observation(self.map_exit)
 
-        reward = self.getreward()
+        # la recompensa es 1 si ha llegado a la salida, 0 si no es así
+        reward = self.get_reward()
         return reward, ob
 
 
@@ -80,9 +82,11 @@ class findexitEnv(gym.Env):
     def render(self, mode='human', close=False):
         pass
 
-    def getreward(self):
+    def get_reward(self):
         if self.explorer.x == self.map_exit.x and self.explorer.y == self.map_exit.y:
             return 1
         else:
             return 0
 
+    def get_observation(self, other):
+        return self.explorer.distance(other)
