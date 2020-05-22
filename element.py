@@ -8,8 +8,12 @@ class Element:
             self.x += x
             self.y += y
 
-    def position(self):
+    def get_position(self):
         return self.x, self.y
+
+    def set_position(self, x, y):
+        self.x = x
+        self.y = y
 
     def distance(self, exit_position):
         return self.x - exit_position.x, self.y - exit_position.y
