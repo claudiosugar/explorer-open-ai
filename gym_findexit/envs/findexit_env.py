@@ -8,7 +8,7 @@ import element
 class findexitEnv(gym.Env):
 
     explorer = element.Element(0, 0)
-    map_exit = element.Element(9, 4)
+    map_exit = element.Element(9, 9)
 
     game_map = np.array([
         [1, 1, 1, 1, 1, 1, 1, 1, 0, 0],

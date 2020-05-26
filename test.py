@@ -17,22 +17,17 @@ LEARNING_RATE = 0.5
 DISCOUNT_RATE = 0.95
 EPISODE_STEPS = 200
 EPISODES = 1000000
-EXPLORATION = 0.99
+EXPLORATION = 0.995
 
 # inicializar entorno
 env = gym.make('findexit-v0')
 env.reset()
 print(env.action_space)
 
-# posicion inicial (tengo que cambiar esto)
-current_ob = (5, 0)
-previous_ob = (5, 0)
-
 for episode in range(EPISODES):
     # hay que resetear posicion inicial en funcion reset
-    env.reset()
-    current_ob = (5, 0)
-    previous_ob = (5, 0)
+    current_ob = env.reset()
+    previous_ob = current_ob
     print("episode: " + str(episode))
     for step in range(EPISODE_STEPS):
         # exploración o explotación
