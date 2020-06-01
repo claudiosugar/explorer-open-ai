@@ -38,6 +38,8 @@ for episode in range(EPISODES):
             # exploracion
             action = np.random.randint(0, 1)
 
+        env.render()
+
 
         # ejecutamos el step utilizando este valor como acción
         reward, current_ob = env.step(action)
@@ -46,7 +48,6 @@ for episode in range(EPISODES):
             break
 
         # actualizamos valor de la posición en la q_table
-
         q_table[previous_ob][int(action)] = q_table[current_ob][int(action)] * (1 - LEARNING_RATE) + LEARNING_RATE * (reward + DISCOUNT_RATE * np.max(q_table[current_ob][int(action)]))
         previous_ob = current_ob
 
