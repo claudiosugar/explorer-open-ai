@@ -81,7 +81,7 @@ class findexitEnv(gym.Env):
     def reset(self):
         self.explorer.set_position(0, 0)
         self.map_exit.set_position(9, 9)
-        return self.get_observation(self.map_exit)
+        return self.get_observation(self.map_exit)9
 
     def render(self, mode='human', close=False):
         pass

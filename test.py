@@ -56,6 +56,7 @@ for episode in range(EPISODES):
     TODO: - posicion inicial aleatoria (pero valida)
           - entender mejor la back-propagation
           - probar si la q_table se esta actualizando correctamente
+          - pillow para mostrar graficamente
     
 '''
 
