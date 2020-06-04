@@ -1,6 +1,4 @@
 import gym
-from gym import error, spaces, utils
-from gym.utils import seeding
 import numpy as np
 import element
 from PIL import Image
@@ -8,38 +6,64 @@ import cv2
 
 
 class findexitEnv(gym.Env):
-
-    explorer = element.Element(0, 0)
-    map_exit = element.Element(19, 19)
-
+    '''
     game_map = np.array([
-        [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
-        [0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1],
+        [0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1],
         [0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
-        [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+        [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+        [0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+        [0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1],
+        [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1],
+        [0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1],
+        [0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1],
+        [0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1],
+        [0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1],
+        [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1],
         [0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
         [0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
         [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
         [0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
         [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1]
     ])
+    '''
+    game_map = np.array([
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    ])
 
 
+    # posición aleatoria válida del explorador
+    explorer = element.Element(np.random.randint(0, 19), np.random.randint(0, 19))
+    while game_map[explorer.initial_x][explorer.initial_y] == 0:
+        explorer = element.Element(np.random.randint(0, 19), np.random.randint(0, 19))
+
+    map_exit = element.Element(19, 19)
+    map_exit_2 = element.Element(0, 19)
 
     def __init__(self):
         self.action_space = 4
-        self.SIZE = len(self.game_map)
         self.observation_space = len(self.game_map)
 
 
@@ -55,33 +79,25 @@ class findexitEnv(gym.Env):
         #print("value at coordinates = " + str(self.game_map[self.explorer.x, self.explorer.y]))
         if action == 0:
             if self.explorer.x - 1 >= 0 and self.game_map[self.explorer.x - 1, self.explorer.y] > 0:
-                #print("MOVE UP")
                 self.explorer.move(-1, 0)
             else:
-                #print("WALL UP")
                 pass
         elif action == 1:
             if self.explorer.y + 1 < len(self.game_map[0]):
                 if self.game_map[self.explorer.x, self.explorer.y + 1] > 0:
-                    #print("MOVE RIGHT")
                     self.explorer.move(0, 1)
             else:
-                #print("WALL RIGHT")
                 pass
         elif action == 2:
             if self.explorer.x + 1 < len(self.game_map):
                 if self.game_map[self.explorer.x + 1, self.explorer.y] > 0:
-                    #print("MOVE DOWN")
                     self.explorer.move(1, 0)
             else:
-                #print("WALL DOWN")
                 pass
         elif action == 3:
             if self.explorer.y - 1 >= 0 and self.game_map[self.explorer.x, self.explorer.y - 1] > 0:
-                #print("MOVE LEFT")
                 self.explorer.move(0, -1)
             else:
-                #print("WALL LEFT")
                 pass
 
         # la observación del entorno es la distancia entre el explorador y la salida, (x, y)
@@ -92,14 +108,16 @@ class findexitEnv(gym.Env):
         return reward, ob
 
 
+    # reset coloca al explorador en una nueva posición inicial
     def reset(self):
-        self.explorer.set_position(self.explorer.initial_x, self.explorer.initial_y)
-        self.map_exit.set_position(self.map_exit.initial_x, self.map_exit.initial_y)
+        self.explorer.set_position(np.random.randint(0, 19), np.random.randint(0, 19))
+        while self.game_map[self.explorer.initial_x][self.explorer.y] == 0:
+            self.explorer.set_position(np.random.randint(0, 19), np.random.randint(0, 19))
         return self.get_observation(self.map_exit)
 
     # TODO: inicializar map_image en constructor para no realizar este proceso cada render?
     def render(self, mode='human', close=False):
-        map_image = np.zeros((self.SIZE, self.SIZE, 3), dtype=np.uint8) #sera tamaño
+        map_image = np.zeros((self.observation_space, self.observation_space, 3), dtype=np.uint8) #sera tamaño
         line_index = 0
         for line in self.game_map:
             for pixel in range(len(line)):
@@ -109,17 +127,17 @@ class findexitEnv(gym.Env):
 
         map_image[self.explorer.x][self.explorer.y] = 255, 100, 100
         map_image[self.map_exit.x][self.map_exit.y] = 0, 0, 255
+        map_image[self.map_exit_2.x][self.map_exit_2.y] = 0, 0, 200
         img = Image.fromarray(map_image, "RGB")
         img = img.resize((400, 400), resample=Image.NEAREST)
         cv2.imshow("", np.array(img))
         cv2.waitKey(20)
 
-
-
-
     def get_reward(self):
         if self.explorer.x == self.map_exit.x and self.explorer.y == self.map_exit.y:
-            return 1
+            return 2
+        elif self.explorer.x == self.map_exit_2.x and self.explorer.y == self.map_exit_2.y:
+            return 0.1
         else:
             return -1
 
