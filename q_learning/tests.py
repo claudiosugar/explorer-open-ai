@@ -32,7 +32,7 @@ for i in range(20):
     cv2.imshow("", np.array(img))
 '''
 
-
+q[state][action] += reward + discount * q[next_state][np.argmax(q[next_state])]
 
 
 game_map = np.array([

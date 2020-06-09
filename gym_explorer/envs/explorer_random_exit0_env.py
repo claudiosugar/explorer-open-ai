@@ -5,8 +5,8 @@ from PIL import Image
 import cv2
 
 
-class findexitEnv(gym.Env):
-    '''
+class explorer_random_exit0Env(gym.Env):
+
     game_map = np.array([
         [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1],
         [0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1],
@@ -52,15 +52,18 @@ class findexitEnv(gym.Env):
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ])
-
+    '''
 
     # posición aleatoria válida del explorador
-    explorer = element.Element(np.random.randint(0, 19), np.random.randint(0, 19))
+    explorer = element.Element(np.random.randint(0, len(game_map)), np.random.randint(0, len(game_map)))
     while game_map[explorer.initial_x][explorer.initial_y] == 0:
-        explorer = element.Element(np.random.randint(0, 19), np.random.randint(0, 19))
+        explorer = element.Element(np.random.randint(0, len(game_map)), np.random.randint(0, len(game_map)))
 
-    map_exit = element.Element(19, 19)
-    map_exit_2 = element.Element(0, 19)
+    # posicion aleatoria valida de la salida
+    map_exit = element.Element(np.random.randint(0, len(game_map)), np.random.randint(0, len(game_map)))
+    while game_map[map_exit.initial_x][map_exit.initial_y] == 0:
+        map_exit = element.Element(np.random.randint(0, len(game_map)), np.random.randint(0, len(game_map)))
+
 
     def __init__(self):
         self.action_space = 4
@@ -108,12 +111,22 @@ class findexitEnv(gym.Env):
         return reward, ob
 
 
-    # reset coloca al explorador en una nueva posición inicial
+    # reset coloca al explorador y la salida en una nueva posición inicial
     def reset(self):
-        self.explorer.set_position(np.random.randint(0, 19), np.random.randint(0, 19))
+        self.explorer.set_position(np.random.randint(0, len(self.game_map)), np.random.randint(0, len(self.game_map)))
         while self.game_map[self.explorer.initial_x][self.explorer.y] == 0:
-            self.explorer.set_position(np.random.randint(0, 19), np.random.randint(0, 19))
+            self.explorer.set_position(np.random.randint(0, len(self.game_map)), np.random.randint(0, len(self.game_map)))
+
+        self.map_exit.set_position(np.random.randint(0, len(self.game_map)), np.random.randint(0, len(self.game_map)))
+        while self.game_map[self.map_exit.initial_x][self.map_exit.y] == 0:
+            self.map_exit.set_position(np.random.randint(0, len(self.game_map)),
+                                       np.random.randint(0, len(self.game_map)))
+
+
         return self.get_observation(self.map_exit)
+
+
+
 
     # TODO: inicializar map_image en constructor para no realizar este proceso cada render?
     def render(self, mode='human', close=False):
@@ -127,19 +140,17 @@ class findexitEnv(gym.Env):
 
         map_image[self.explorer.x][self.explorer.y] = 255, 100, 100
         map_image[self.map_exit.x][self.map_exit.y] = 0, 0, 255
-        map_image[self.map_exit_2.x][self.map_exit_2.y] = 0, 0, 200
         img = Image.fromarray(map_image, "RGB")
         img = img.resize((400, 400), resample=Image.NEAREST)
         cv2.imshow("", np.array(img))
-        cv2.waitKey(20)
+        cv2.waitKey(40)
 
     def get_reward(self):
-        if self.explorer.x == self.map_exit.x and self.explorer.y == self.map_exit.y:
-            return 2
-        elif self.explorer.x == self.map_exit_2.x and self.explorer.y == self.map_exit_2.y:
-            return 0.1
+        if self.explorer.distance(self.map_exit) == (0, 0):
+            return 1
         else:
             return -1
 
     def get_observation(self, other):
         return self.explorer.distance(other)
+

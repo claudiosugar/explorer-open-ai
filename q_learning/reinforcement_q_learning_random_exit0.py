@@ -1,26 +1,24 @@
 import gym
-import gym_findexit
+import gym_explorer
 import numpy as np
-
 
 #
 LEARNING_RATE = 0.5
 DISCOUNT_RATE = 0.95
-EPISODE_STEPS = 200
+EPISODE_STEPS = 100
 EPISODES = 1000000
 EXPLORATION = 0.990
-SHOW_EPISODE = 500
+SHOW_EPISODE = 10000
 
 # inicializar entorno
-env = gym.make('findexit-v0')
+env = gym.make('explorer-random-exit-v0')
 
 # inicializar q table del tamaño del mapa (valores random de 0 a 4 por ahora. considerar inicializar a 0)
 q_table = {}
 for x in range(-env.observation_space + 1, env.observation_space):
     for y in range(-env.observation_space + 1, env.observation_space):
-        #q_table[(x, y)] = [np.random.uniform(0, 4) for i in range(4)]
+        # q_table[(x, y)] = [np.random.uniform(0, 4) for i in range(4)]
         q_table[x, y] = [0 for i in range(4)]
-
 
 
 
@@ -41,7 +39,6 @@ for episode in range(EPISODES):
             # exploracion
             action = np.random.randint(0, 4)
 
-
         # ejecutamos el step utilizando este valor como acción
         reward, current_ob = env.step(action)
         if reward >= 0:
@@ -49,18 +46,12 @@ for episode in range(EPISODES):
             break
 
         # actualizamos valor de la posición en la q_table
-        q_table[previous_ob][int(action)] = q_table[current_ob][int(action)] * (1 - LEARNING_RATE) + LEARNING_RATE * (reward + DISCOUNT_RATE * np.max(q_table[current_ob][int(action)]))
+        q_table[previous_ob][int(action)] = q_table[current_ob][int(action)] * (1 - LEARNING_RATE) + LEARNING_RATE * (
+                    reward + DISCOUNT_RATE * np.max(q_table[current_ob][int(action)]))
         previous_ob = current_ob
 
         # mostrar gráficamente si toca
         if episode % SHOW_EPISODE == 0:
             env.render()
-            print(q_table)
-
-'''
-    
-    TODO: - el agente debe priorizar la salida con mayor reward
-          
-    
-'''
+            # print(q_table)
 

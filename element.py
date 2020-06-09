@@ -17,5 +17,5 @@ class Element:
         self.x = x
         self.y = y
 
-    def distance(self, exit_position):
-        return self.x - exit_position.x, self.y - exit_position.y
+    def distance(self, other_element):
+        return self.x - other_element.x, self.y - other_element.y
