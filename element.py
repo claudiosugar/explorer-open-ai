@@ -1,6 +1,7 @@
 class Element:
 
     def __init__(self, x, y):
+        self.q_table = []
         self.x = x
         self.y = y
         self.initial_x = x

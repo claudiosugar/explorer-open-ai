@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="622d3788-6f05-49d0-b3c1-66bdf800499a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gym_explorer/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gym_explorer/envs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gym_explorer/envs/explorer_random_exit0_env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/q_learning/reinforcement_q_learning_random_exit0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gym-findexit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gym-explorer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/element.py" beforeDir="false" afterPath="$PROJECT_DIR$/element.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gym_findexit/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gym_findexit/envs/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gym_findexit/envs/findexit_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/gym_explorer/envs/explorer0_env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reinforcement_q_learning.py" beforeDir="false" afterPath="$PROJECT_DIR$/q_learning/reinforcement_q_learning0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/q_learning/tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q_learning/reinforcement_q_learning0.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+            <state relative-caret-position="272">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -40,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gym_explorer/envs/explorer0_env.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+            <state relative-caret-position="102">
+              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -50,10 +38,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/element.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gym_explorer/envs/explorer_random_exit0_env.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="296">
+              <caret line="81" column="96" lean-forward="true" selection-start-line="81" selection-start-column="96" selection-end-line="81" selection-end-column="96" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -61,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q_learning/reinforcement_q_learning_random_exit0.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+            <state relative-caret-position="612">
+              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -89,13 +86,17 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/classtoimport.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/element.py" />
         <option value="$PROJECT_DIR$/tests.py" />
         <option value="$PROJECT_DIR$/reinforcement_q_learning.py" />
         <option value="$PROJECT_DIR$/gym_findexit/envs/findexit_env.py" />
@@ -112,14 +113,15 @@
         <option value="$PROJECT_DIR$/reinforcement_q_learning_random_exit0.py" />
         <option value="$PROJECT_DIR$/gym_explorer/envs/explorer_random_exit0_env.py" />
         <option value="$PROJECT_DIR$/q_learning/reinforcement_q_learning_random_exit0.py" />
+        <option value="$PROJECT_DIR$/element.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="101" />
-    <option name="y" value="181" />
-    <option name="width" value="3029" />
-    <option name="height" value="1100" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectId" id="1Yo3mYMaDpnT9EBDRXYop8YyjlE" />
   <component name="ProjectView">
@@ -127,6 +129,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,7 +157,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -180,27 +182,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.reinforcement_q_learning_random_exit0">
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="gym-explorer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="findexit_env" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="gym-explorer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -306,49 +287,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="gym-explorer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="gym-explorer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <module name="gym-explorer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.reinforcement_q_learning_random_exit0" />
@@ -440,7 +378,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591273617944</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="renombrado, añadido entorno para salida aleatoria">
+      <created>1591693665950</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1591693665950</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -456,19 +401,19 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3315565" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49945828" visible="true" weight="0.22228146" />
+      <window_info id="Structure" order="1" sideWeight="0.5005417" side_tool="true" weight="0.20255864" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" x="0" y="23" width="1920" height="1017" id="Run" maximized="true" order="2" type="WINDOWED" visible="true" weight="0.28494042" />
+      <window_info anchor="bottom" x="281" y="150" width="988" height="509" id="Run" maximized="true" order="2" type="WINDOWED" weight="0.28494042" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49946696" weight="0.42903575" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053304" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3066089" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.24160346" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.22860238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -538,17 +483,11 @@
     <MESSAGE value="mejorada visualizacion del mapa con resample=Image.Nearest" />
     <MESSAGE value="completado env.render(), ampliado mapa" />
     <MESSAGE value="posicion inicial del agente aleatoria, 2a salida" />
-    <option name="LAST_COMMIT_MESSAGE" value="posicion inicial del agente aleatoria, 2a salida" />
+    <MESSAGE value="renombrado, añadido entorno para salida aleatoria" />
+    <option name="LAST_COMMIT_MESSAGE" value="renombrado, añadido entorno para salida aleatoria" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/classtoimport.py" />
-    <entry file="file://$PROJECT_DIR$/element.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/gym/envs/registration.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -590,10 +529,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gym_explorer/envs/explorer_random_exit0_env.py">
+    <entry file="file://$PROJECT_DIR$/q_learning/reinforcement_q_learning0.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="272">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -602,28 +541,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gym_explorer/envs/explorer0_env.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        <state relative-caret-position="102">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/q_learning/reinforcement_q_learning0.py">
+    <entry file="file://$PROJECT_DIR$/element.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/q_learning/reinforcement_q_learning_random_exit0.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+        <state relative-caret-position="612">
+          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gym_explorer/envs/explorer_random_exit0_env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="81" column="96" lean-forward="true" selection-start-line="81" selection-start-column="96" selection-end-line="81" selection-end-column="96" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
